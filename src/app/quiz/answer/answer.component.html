@@ -1,8 +1,8 @@
+<span>Questions left: {{ questionsLeft }}</span>
 <div class="answers">
   <ng-container *ngFor="let answer of answers; index as i;">
     <div
-      class="answer {{ showAnswers }}"
-      [ngClass]="correctAnswer"
+      class="answer {{ showAnswers }} {{ (correctAnswer === i && showAnswers) ? 'correctAnswer' : '' }}"
       (click)="checkAnswer(i)"
     >
       <div>{{ answer }}</div>

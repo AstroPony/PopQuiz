@@ -1,8 +1,10 @@
-import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnDestroy, OnInit, Output} from '@angular/core';
 
 import { DataService } from "../services/data.service";
 import { Question } from "../interfaces/question";
 import { TimerService } from "../services/timer.service";
+import {takeUntil} from "rxjs/operators";
+import {Subject} from "rxjs";
 
 @Component({
   selector: 'app-quiz',
@@ -10,10 +12,11 @@ import { TimerService } from "../services/timer.service";
   styleUrls: ['./quiz.component.scss']
 })
 
-export class QuizComponent implements OnInit {
+export class QuizComponent implements OnInit, OnDestroy {
   @Output() updateScore = new EventEmitter<number>();
   @Input() secLeft: number = 0;
   secToScore: number = 0;
+  private destroy$ = new Subject();
 
   question: Question = {} as Question;
 
@@ -21,11 +24,18 @@ export class QuizComponent implements OnInit {
               private timerService: TimerService) { }
 
   ngOnInit(): void {
-    this.timerService.getSecondsLeft().subscribe(seconds => {
+    this.timerService.getSecondsLeft()
+      .pipe(takeUntil(this.destroy$))
+      .subscribe(seconds => {
       if (seconds === 0) {
         this.question = this.dataService.getData();
       }
     });
+  }
+
+  ngOnDestroy() {
+    this.destroy$.next();
+    this.destroy$.complete();
   }
 
   shouldSetScore(answer: boolean) {

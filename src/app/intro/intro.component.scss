@@ -1,5 +1,18 @@
 .intro {
   text-align: center;
+
+  .quiz {
+    width: 50%;
+    float: left;
+    height: 120px;
+
+    @media screen and (max-width: 767px) {
+      width: 100%;
+      float: left;
+      height: auto;
+    }
+  }
+
   &__main-text {
     h1 {
       font-size: 40px;

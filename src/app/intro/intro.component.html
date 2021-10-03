@@ -37,20 +37,21 @@
     </div>
   </ng-container>
   <ng-container *ngIf="playerName && !completed">
-    <div class="intro__main-text">
+    <div class="intro__main-text quiz">
       <div>Let's go <h1>{{ playerName }}</h1></div>
     </div>
-    <div class="intro__sub-text">
+    <div class="intro__sub-text quiz">
       <h4>Current score:</h4>
       <h1> {{ score }}</h1>
     </div>
   </ng-container>
   <ng-container *ngIf="playerName && completed">
     <div class="intro__main-text">
-      <h1>Quiz Complete!</h1>
+      <div><h1>Whew! That was fast!</h1></div>
     </div>
     <div class="intro__sub-text">
-      <h3>Well done {{ playerName }}! <br/> Your final score was: {{ score }}</h3>
+      <h4>Your final score was:</h4>
+      <h1>{{ score }}</h1>
     </div>
   </ng-container>
 </div>

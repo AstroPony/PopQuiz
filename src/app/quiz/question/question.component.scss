@@ -1,7 +1,10 @@
 .question {
   &__text {
-    margin-bottom: 40px;
-    font-size: 24px;
-    text-align: center
+    margin: 40px 0 20px;
+    text-align: center;
+
+    h1 {
+      font-size: 32px;
+    }
   }
 }

@@ -8,7 +8,7 @@ export class TimerService {
   curSec: number = 0;
   progressbarValue$ = new BehaviorSubject<number>(100);
   secondsLeft$ = new BehaviorSubject<number>(0);
-  time: number = 100; //TODO Fix this
+  time: number = 10;
   timer: any = null;
   sub: any = null;
 

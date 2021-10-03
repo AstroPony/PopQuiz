@@ -12,12 +12,14 @@ export class DataService {
   usedQuestions: [] = [];
   randomQuestion: Question | undefined;
   quizComplete$ = new BehaviorSubject<boolean>(false);
+  questionsLeft$ = new BehaviorSubject<number>(0);
 
   constructor() {
     this.questions = data.questions;
   }
 
   getData(): any {
+    this.questionsLeft$.next(12 - this.usedQuestions.length);
     if (this.usedQuestions.length === this.questions.length) {
       this.quizComplete$.next(true);
     } else {
@@ -38,5 +40,9 @@ export class DataService {
 
   getQuizCompleted(): Observable<boolean> {
     return this.quizComplete$.asObservable();
+  }
+
+  getQuestionsLeft(): Observable<number> {
+    return this.questionsLeft$.asObservable();
   }
 }

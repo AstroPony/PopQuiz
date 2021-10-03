@@ -19,6 +19,7 @@ import { TimerComponent } from './quiz/timer/timer.component';
 import { QuestionComponent } from './quiz/question/question.component';
 import { AnswerComponent } from './quiz/answer/answer.component';
 import {MatProgressBarModule} from "@angular/material/progress-bar";
+import { LeaderboardComponent } from './block/leaderboard/leaderboard.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import {MatProgressBarModule} from "@angular/material/progress-bar";
     QuizComponent,
     TimerComponent,
     QuestionComponent,
-    AnswerComponent
+    AnswerComponent,
+    LeaderboardComponent
   ],
     imports: [
         BrowserModule,

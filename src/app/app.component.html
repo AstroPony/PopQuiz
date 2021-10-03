@@ -2,5 +2,17 @@
   <app-intro [playerName]="playerName" [score]="playerScore"></app-intro>
   <app-name *ngIf="!playerName" (playerName)="setPlayer($event)"></app-name>
   <app-quiz *ngIf="playerName && !completed" (updateScore)="setScore($event)"></app-quiz>
-  <app-block *ngIf="playerName && completed"></app-block>
+  <app-block [finalScore]="playerScore" [finalPlayer]="playerName"></app-block>
 </div>
+<ng-container *ngIf="playerName && completed">
+  <a href="/">
+    <div class="container">
+      <div class="replay">
+        <div class="replay__btn">
+          <mat-icon aria-hidden="false" aria-label="refresh icon">refresh</mat-icon>
+          <span>Replay</span>
+        </div>
+      </div>
+    </div>
+  </a>
+</ng-container>

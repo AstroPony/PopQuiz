@@ -2,7 +2,7 @@
   <app-intro [playerName]="playerName" [score]="playerScore"></app-intro>
   <app-name *ngIf="!playerName" (playerName)="setPlayer($event)"></app-name>
   <app-quiz *ngIf="playerName && !completed" (updateScore)="setScore($event)"></app-quiz>
-  <app-block [finalScore]="playerScore" [finalPlayer]="playerName"></app-block>
+  <app-block *ngIf="playerName && completed" [finalScore]="playerScore" [finalPlayer]="playerName"></app-block>
 </div>
 <ng-container *ngIf="playerName && completed">
   <a href="/">

@@ -1,0 +1,26 @@
+<div class="intro">
+  <ng-container *ngIf="!playerName">
+    <div class="intro__main-text">
+      <h1>Pop Music Quiz</h1>
+    </div>
+    <div class="intro__sub-text">
+      <h4>A quiz about modern day pop music and it's surroundings.</h4>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="playerName && !completed">
+    <div class="intro__main-text">
+      <h1>{{ playerName }} is in the house</h1>
+    </div>
+    <div class="intro__sub-text">
+      <h4>Current score: {{ score }}</h4>
+    </div>
+  </ng-container>
+  <ng-container *ngIf="playerName && completed">
+    <div class="intro__main-text">
+      <h1>Quiz Complete!</h1>
+    </div>
+    <div class="intro__sub-text">
+      <h3>Well done {{ playerName }}! <br/> Your final score was: {{ score }}</h3>
+    </div>
+  </ng-container>
+</div>

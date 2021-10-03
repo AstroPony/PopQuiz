@@ -1,0 +1,8 @@
+<ng-container *ngFor="let answer of answers; index as i;">
+  <div
+    class="question__answer-block"
+    (click)="checkAnswer(i)"
+  >
+    <h2>{{ answer }}</h2>
+  </div>
+</ng-container>

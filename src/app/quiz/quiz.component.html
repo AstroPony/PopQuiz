@@ -1,0 +1,3 @@
+<app-timer (secLeft)="setScoreBySec($event)"></app-timer>
+<app-question [question]="question"></app-question>
+<app-answer [question]="question" (incScore)="shouldSetScore($event)"></app-answer>

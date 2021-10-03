@@ -1,18 +1,48 @@
 <div class="intro">
   <ng-container *ngIf="!playerName">
     <div class="intro__main-text">
-      <h1>Pop Music Quiz</h1>
+      <ng-container *ngIf="mobileView else desktopView">
+        <svg width="100%" height="100%">
+          <defs>
+            <style>
+              @import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+            </style>
+          </defs>
+          <text x="50%" y="20%" text-anchor="middle"  >
+            Bubblegum
+          </text>
+          <text x="50%" y="50%" text-anchor="middle"  >
+            Speed
+          </text>
+          <text x="50%" y="80%" text-anchor="middle"  >
+            Quiz
+          </text>
+        </svg>
+      </ng-container>
+      <ng-template #desktopView>
+        <svg width="100%" height="100%">
+          <defs>
+            <style>
+              @import url("https://fonts.googleapis.com/css2?family=Acme&display=swap");
+            </style>
+          </defs>
+          <text x="50%" y="50%" text-anchor="middle"  >
+            Bubblegum Speed Quiz
+          </text>
+        </svg>
+      </ng-template>
     </div>
     <div class="intro__sub-text">
-      <h4>A quiz about modern day pop music and it's surroundings.</h4>
+      <h4>Ten seconds per question - the faster you answer, the more you score.</h4>
     </div>
   </ng-container>
   <ng-container *ngIf="playerName && !completed">
     <div class="intro__main-text">
-      <h1>{{ playerName }} is in the house</h1>
+      <div>Let's go <h1>{{ playerName }}</h1></div>
     </div>
     <div class="intro__sub-text">
-      <h4>Current score: {{ score }}</h4>
+      <h4>Current score:</h4>
+      <h1> {{ score }}</h1>
     </div>
   </ng-container>
   <ng-container *ngIf="playerName && completed">

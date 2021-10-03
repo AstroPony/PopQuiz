@@ -1,6 +1,6 @@
-<ng-container class="container">
+<div class="container">
   <app-intro [playerName]="playerName" [score]="playerScore"></app-intro>
   <app-name *ngIf="!playerName" (playerName)="setPlayer($event)"></app-name>
   <app-quiz *ngIf="playerName && !completed" (updateScore)="setScore($event)"></app-quiz>
   <app-block *ngIf="playerName && completed"></app-block>
-</ng-container>
+</div>

@@ -1,0 +1,28 @@
+::ng-deep {
+  .mat-progress-bar-fill::after {
+    background-image: linear-gradient(to bottom right, hsl(348, 58%, 61%), hsla(348, 93%, 72%,0%));
+    background-color: #ffa5d8;
+  }
+
+  .mat-progress-bar {
+    height: 14px !important;
+    border-radius: 8px;
+    border: 1px solid #ffa5d8;
+  }
+
+  .mat-progress-bar-background {
+    fill: transparent !important;
+  }
+
+  .mat-progress-bar-buffer {
+    background-color: transparent !important;
+  }
+}
+
+.timer {
+  margin: 20px 0;
+
+  span {
+    margin-left: 4px;
+  }
+}

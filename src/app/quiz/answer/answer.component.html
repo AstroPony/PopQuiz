@@ -1,8 +1,11 @@
-<ng-container *ngFor="let answer of answers; index as i;">
-  <div
-    class="question__answer-block"
-    (click)="checkAnswer(i)"
-  >
-    <h2>{{ answer }}</h2>
-  </div>
-</ng-container>
+<div class="answers">
+  <ng-container *ngFor="let answer of answers; index as i;">
+    <div
+      class="answer {{ showAnswers }}"
+      [ngClass]="correctAnswer"
+      (click)="checkAnswer(i)"
+    >
+      <div>{{ answer }}</div>
+    </div>
+  </ng-container>
+</div>

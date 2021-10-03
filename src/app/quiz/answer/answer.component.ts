@@ -10,6 +10,8 @@ export class AnswerComponent implements OnInit, OnChanges {
   @Input() question: Question = {} as Question;
   @Output() incScore = new EventEmitter<boolean>();
   answers: [] = [];
+  showAnswers: string = '';
+  correctAnswer: string = '';
 
   constructor() { }
 
@@ -19,13 +21,21 @@ export class AnswerComponent implements OnInit, OnChanges {
 
   ngOnChanges(): void {
     this.answers = this.question.answers;
+    this.showAnswers = '';
   }
 
   checkAnswer(i: number) {
+    this.showAnswers = 'showAnswers';
+
     if (i === this.question.correctIndex) {
-      this.incScore.emit(true);
+      setTimeout(() => {
+        this.incScore.emit(true);
+      }, 2000)
     } else {
-      this.incScore.emit(false);
+
+      setTimeout(() => {
+        this.incScore.emit(false);
+      }, 2000)
     }
   }
 
